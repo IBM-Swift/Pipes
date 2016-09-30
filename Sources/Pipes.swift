@@ -14,7 +14,17 @@
  limitations under the License.
  */
  
-infix operator |> {associativity left precedence 100}
-public func |> <T,S>(lhs: T, rhs: (T)->S) -> S {
-    return rhs(lhs)
+precedencegroup LeftFunctionalApply {
+    associativity: left
+    higherThan: AssignmentPrecedence
+    lowerThan: TernaryPrecedence
+}
+
+// pipe val into monadic fn
+infix operator |> : LeftFunctionalApply
+
+// pipe val into monadic fn
+@discardableResult
+public func |>  <A, B> ( x: A, f: (A) throws -> B ) rethrows  -> B {
+    return try f(x)
 }
