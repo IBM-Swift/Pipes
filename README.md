@@ -1,7 +1,6 @@
 # Pipes
 
-Provides basic piping operators that allow programs to be represented using 
-a more dataflow oriented programming style.
+Provides basic piping operators that allow programs to be represented using dataflow oriented programming style.
 
 ## Usage
 
@@ -16,4 +15,8 @@ you want to write:
 ```swift
 getImage() |> compress |> send 
 ```
+## Book Example
 
+This example is used in the following O'Reilly Book:
+
+[Extending Swift Value(s) to the Server](http://shop.oreilly.com/product/0636920056096.do)
